@@ -1,0 +1,66 @@
+<template>
+    <lightning-card title="Field Mapping">
+        <lightning-layout multiple-rows="true" class="slds-m-around_medium">
+            <lightning-layout-item size="11">
+                <lightning-input
+                    data-name="compatibleCheckBox"
+                    name="compatibleCheckBox" 
+                    type="checkbox"
+                    label="Show compatible fields only" 
+                    onchange={handleCheckboxChange}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="11">
+                <lightning-input
+                    data-name="sourceDataType"
+                    name="sourceDataType" 
+                    type="checkbox"
+                    label="Hide Data Type Field" 
+                    onchange={handleCheckboxChange}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="11"> 
+                <lightning-input
+                    data-name="combineFieldType"
+                    name="combinedFieldType"
+                    type="checkbox"
+                    label="Combine field type with data type" 
+                    onchange={handleCheckboxChange}>
+                </lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <div class="slds-m-around_medium" style="height: 350px;">
+            <c-my-custom-type-lightning-datatable
+                key-field='fieldId'    
+                data={data}
+                columns={columns}
+                hide-checkbox-column=true
+                default-sort-direction={defaultSortDirection}
+                sorted-direction={sortDirection}
+                sorted-by={sortedBy}
+                onsort={onHandleSort}
+                onfieldselection ={handleTargetFieldSelection}   
+                onfieldchanged = {handleFieldChange} 
+                oncustomcheckboxchange ={handleCustomCheckboxChange}>
+                </c-my-custom-type-lightning-datatable>
+        </div> 
+        
+        <lightning-button 
+            class="slds-m-left_medium"
+            label={labels.save} 
+            title={labels.save} 
+            variant="brand" 
+            onclick={handleSaveRecords}
+            disabled={showSaveButton}>
+        </lightning-button>
+
+        <lightning-button 
+            class="slds-m-left_medium"
+            label={labels.cancel} 
+            title={labels.cancel} 
+            variant="brand" 
+            onclick={handleOnCancel}>
+        </lightning-button>
+
+    </lightning-card>
+</template>

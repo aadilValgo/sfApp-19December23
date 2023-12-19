@@ -1,0 +1,17 @@
+<template>
+    <div>
+    <lightning-combobox
+            label="Select Object"
+            options={sObjectList}
+            onchange={handleObjectChange} >
+    </lightning-combobox>
+
+        <!--<c-search-bar 
+            icon-name="standard:user"
+            label="Object Selector"
+            onlookupupdate={selectedObjectHanlder}
+            placeholder="Select Object"
+            listresult ={sObjectList}
+        ></c-search-bar>-->
+    </div>
+</template>

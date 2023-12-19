@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title={label.title}>
+        <lightning-layout horizontal-align="spread" multiple-rows="true">
+            <lightning-layout-item size="11" class="slds-m-left_medium">
+                <div class="file-upload slds-m-around_small">
+                    <c-object-selector onobjectselection={handleSelectedObject}></c-object-selector>
+                </div>
+            </lightning-layout-item>
+            <template if:true={showFileUploader}>
+                <lightning-layout-item size="12"  class="slds-m-left_medium">
+                    <div class="file-upload slds-m-around_small">
+                        <lightning-file-upload label={label.uploadFile} name="fileUploader" accept={acceptedFormats}
+                            onuploadfinished={handleUploadFinished} multiple>
+                        </lightning-file-upload>
+                    </div>
+                </lightning-layout-item>
+            </template>
+            <template if:true={showDmlAction}>
+                <lightning-layout-item size="12" class="slds-m-left_medium">
+                    <div class="file-upload slds-m-around_small">
+                        <lightning-radio-group name="radioGroup" label={label.selectDMLAction} options={dmlOptions}
+                        value={selectedDmlAction} type="radio" onchange={handleDMLChange}></lightning-radio-group>
+                    </div>
+                </lightning-layout-item>
+            </template>
+           <!-- <template if:true={showObjectSelector}>
+                <lightning-layout-item size="12" padding="small">
+                    <div class="file-upload slds-m-around_small">
+                        <c-object-selector onobjectselection={handleSelectedObject}></c-object-selector>
+                    </div>
+                </lightning-layout-item>
+            </template>-->
+            <template if:true={showFieldSelector}>
+                <lightning-layout-item size="12" padding="small">
+                    <div class="file-upload slds-m-around_small">
+                        <c-field-mapping lwc:ref="fieldMapping" object-name={selectedObject}  onsave={handleSave} 
+                            oncreatemappinghandler={createMappingRecord} 
+                            csv-headers={headers} selected-dml-action={selectedDmlAction} 
+                           fieldsdata={fieldJson} onhandlecancel = {handlecancel}
+                           ></c-field-mapping> <!-- fields-map{fieldJson}-->
+                    </div>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </lightning-card>
+</template>

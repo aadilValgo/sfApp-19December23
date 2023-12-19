@@ -1,0 +1,15 @@
+<template>
+    <!--
+    <c-dynamic-input custom-data-type= {typeAttributes.fieldtype} disabled = {typeAttributes.disabled}
+        data-inputable="true"
+    ></c-dynamic-input> -->
+          {typeAttributes.fieldtype} {editedValue}{typeAttributes.disabled}
+   <template if:true={typeAttributes.fieldtype}>
+        <lightning-input  type={typeAttributes.fieldtype}
+            value={editedValue}  
+            disabled={typeAttributes.disabled}
+            data-inputable="true"
+        ></lightning-input>
+    </template>
+    
+</template>

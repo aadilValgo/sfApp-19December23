@@ -1,0 +1,19 @@
+<template>
+    <c-custom-field-selector
+        source-field-type={typeAttributes.fieldtype}
+        object-api-name ={typeAttributes.objectapiname}
+        compatible ={typeAttributes.compatible}
+        row-id ={typeAttributes.rowId}
+        options = {typeAttributes.options}
+        selected-field = {typeAttributes.selectedField}>
+    </c-custom-field-selector>
+    
+    <!--<c-field-selector-drop-down 
+        source-field-type={typeAttributes.fieldtype}
+        object-api-name ={typeAttributes.objectapiname}
+        compatible ={typeAttributes.compatible}
+        row-id ={typeAttributes.rowId}
+        pre-selected-value={}
+    ></c-field-selector-drop-down>
+    <template if:true={selectedField}>{selectedField.name}</template>-->
+</template>

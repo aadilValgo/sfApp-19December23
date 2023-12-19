@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-m-around_medium" style="height: 350px;">
+        <template if:true={data}>
+            <c-my-custom-type-lightning-datatable 
+                    key-field="fieldId"
+                    data={data}
+                    columns={columns}
+                    onsave={handleSave}
+                    onrowselection={handleRowSelection}
+                    oncellchange={handleChange}
+                    oncustomcheckboxchange ={handleCustomCheckboxChange}
+                    >
+            </c-my-custom-type-lightning-datatable>
+        </template>
+    </div>
+</template>
+<!--oncellchange={handleChange} onclick={handleOnClick}-->
