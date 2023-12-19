@@ -1,4 +1,4 @@
-import { LightningElement, wire } from "lwc";
+import { LightningElement, wire } from "lwc"; 
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import { createRecord } from "lightning/uiRecordApi";
 import MAPPING_OBJECT from "@salesforce/schema/Mapping__c";
